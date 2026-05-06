@@ -255,11 +255,20 @@ export default function QuizPage() {
                 Percentage: {result.percentage}%
               </p>
 
-              {result.passed ? (
-                <p className="font-bold mt-3 text-green-700">
-                  PASSED — Contractor may continue approval process.
-                </p>
-              ) : (
+			{result.passed ? (
+				<div className="mt-3">
+					<p className="font-bold text-green-700 mb-4">
+					PASSED — Contractor may generate completion certificate.
+					</p>
+
+					<a
+						href="/certificate"
+						className="inline-block bg-black text-white px-6 py-3 rounded-xl font-semibold"
+					>
+						Generate Completion Certificate
+					</a>
+				</div>
+			) : (
                 <p className="font-bold mt-3 text-red-700">
                   FAILED — Contractor must review training and retake quiz.
                 </p>
