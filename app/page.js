@@ -59,15 +59,15 @@ export default function Home() {
 				<p>Safe lifting points, wheel protection, and torque procedures.</p>
 			</a>
 
-            <div className="bg-gray-200 rounded-xl p-4">
-              <h3 className="text-xl font-bold">Fuel Delivery Training</h3>
-              <p>Fuel verification and contamination prevention.</p>
-            </div>
+			<a href="/fuel-delivery" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
+				<h3 className="text-xl font-bold">Fuel Delivery Training</h3>
+				<p>Fuel verification and contamination prevention.</p>
+			</a>
 
-            <div className="bg-gray-200 rounded-xl p-4">
-              <h3 className="text-xl font-bold">Jump Start Training</h3>
-              <p>Battery safety and modern vehicle procedures.</p>
-            </div>
+			<a href="/jump-start" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
+				<h3 className="text-xl font-bold">Jump Start Training</h3>
+				<p>Battery safety and modern vehicle procedures.</p>
+			</a>
 
           </div>
         </div>
