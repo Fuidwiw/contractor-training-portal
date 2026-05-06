@@ -33,11 +33,17 @@ export default function QuizPage() {
     if (answers.q6 === correctAnswers.q6) score++;
 
     const percentage = Math.round((score / 6) * 100);
+	
+	const passed = percentage >=80
+	
+	if (passed) {
+		sessionStorage.setItem("trainingPassed", "true");
+	}
 
     setResult({
       score,
       percentage,
-      passed: percentage >= 80,
+      passed,
     });
   }
 

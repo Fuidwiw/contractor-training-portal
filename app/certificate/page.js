@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CertificatePage() {
+  const [allowed, setAllowed] = useState(false);
+  const [checkingAccess, setCheckingAccess] = useState(true);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [signature, setSignature] = useState("");
@@ -10,6 +13,16 @@ export default function CertificatePage() {
   const [showCertificate, setShowCertificate] = useState(false);
 
   const today = new Date().toLocaleDateString();
+
+  useEffect(() => {
+    const passed = sessionStorage.getItem("trainingPassed");
+
+    if (passed === "true") {
+      setAllowed(true);
+    }
+
+    setCheckingAccess(false);
+  }, []);
 
   function generateCertificate() {
     if (!name.trim()) {
@@ -37,6 +50,39 @@ export default function CertificatePage() {
 
   function printCertificate() {
     window.print();
+  }
+
+  if (checkingAccess) {
+    return (
+      <main className="min-h-screen bg-gray-100 text-gray-900 p-8">
+        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-8">
+          <p>Checking training completion...</p>
+        </div>
+      </main>
+    );
+  }
+
+  if (!allowed) {
+    return (
+      <main className="min-h-screen bg-gray-100 text-gray-900 p-8">
+        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-8">
+          <h1 className="text-3xl font-bold mb-4">
+            Certificate Locked
+          </h1>
+
+          <p className="mb-6">
+            You must pass the contractor training quiz before generating a completion certificate.
+          </p>
+
+          <a
+            href="/quiz"
+            className="inline-block bg-black text-white px-6 py-3 rounded-xl font-semibold"
+          >
+            Go to Quiz
+          </a>
+        </div>
+      </main>
+    );
   }
 
   return (
