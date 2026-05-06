@@ -69,6 +69,11 @@ export default function Home() {
 				<p>Battery safety and modern vehicle procedures.</p>
 			</a>
 
+			<a href="/claims-prevention" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
+				<h3 className="text-xl font-bold">Claims Prevention Training</h3>
+				<p>Required documentation, evidence collection, and claim protection procedures.</p>
+			</a>
+
           </div>
         </div>
 
