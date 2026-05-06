@@ -10,6 +10,9 @@ export default function QuizPage() {
     q1: "photos",
     q2: "dispatch",
     q3: "jackpoint",
+    q4: "reverse",
+    q5: "fueltype",
+    q6: "report",
   };
 
   function handleAnswer(question, value) {
@@ -25,13 +28,16 @@ export default function QuizPage() {
     if (answers.q1 === correctAnswers.q1) score++;
     if (answers.q2 === correctAnswers.q2) score++;
     if (answers.q3 === correctAnswers.q3) score++;
+    if (answers.q4 === correctAnswers.q4) score++;
+    if (answers.q5 === correctAnswers.q5) score++;
+    if (answers.q6 === correctAnswers.q6) score++;
 
-    const percentage = Math.round((score / 3) * 100);
+    const percentage = Math.round((score / 6) * 100);
 
     setResult({
       score,
       percentage,
-      passed: percentage === 100,
+      passed: percentage >= 80,
     });
   }
 
@@ -56,10 +62,15 @@ export default function QuizPage() {
           </h2>
 
           <p className="mb-4">
-            Select the best answer for each question. A score of 100% is required to pass.
+            Select the best answer for each question.
+          </p>
+
+          <p>
+            A score of 80% or higher is required to pass.
           </p>
         </div>
 
+        {/* Question 1 */}
         <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
           <h2 className="text-2xl font-semibold mb-4">Question 1</h2>
 
@@ -86,6 +97,7 @@ export default function QuizPage() {
           </div>
         </div>
 
+        {/* Question 2 */}
         <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
           <h2 className="text-2xl font-semibold mb-4">Question 2</h2>
 
@@ -112,6 +124,7 @@ export default function QuizPage() {
           </div>
         </div>
 
+        {/* Question 3 */}
         <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
           <h2 className="text-2xl font-semibold mb-4">Question 3</h2>
 
@@ -138,6 +151,88 @@ export default function QuizPage() {
           </div>
         </div>
 
+        {/* Question 4 */}
+        <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
+          <h2 className="text-2xl font-semibold mb-4">Question 4</h2>
+
+          <p className="mb-4 font-semibold">
+            What is the most dangerous mistake during a jump start?
+          </p>
+
+          <div className="space-y-2">
+            <label className="block">
+              <input type="radio" name="q4" onChange={() => handleAnswer("q4", "late")} /> Disconnecting cables too late
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q4" onChange={() => handleAnswer("q4", "reverse")} /> Reversing polarity connections
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q4" onChange={() => handleAnswer("q4", "small")} /> Using a small jump pack
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q4" onChange={() => handleAnswer("q4", "dirty")} /> Dirty battery terminals
+            </label>
+          </div>
+        </div>
+
+        {/* Question 5 */}
+        <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
+          <h2 className="text-2xl font-semibold mb-4">Question 5</h2>
+
+          <p className="mb-4 font-semibold">
+            What should a contractor always verify before fuel delivery?
+          </p>
+
+          <div className="space-y-2">
+            <label className="block">
+              <input type="radio" name="q5" onChange={() => handleAnswer("q5", "guess")} /> Guess the fuel type
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q5" onChange={() => handleAnswer("q5", "fueltype")} /> Confirm the correct fuel type
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q5" onChange={() => handleAnswer("q5", "diesel")} /> Use diesel if unsure
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q5" onChange={() => handleAnswer("q5", "skip")} /> Skip customer confirmation
+            </label>
+          </div>
+        </div>
+
+        {/* Question 6 */}
+        <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
+          <h2 className="text-2xl font-semibold mb-4">Question 6</h2>
+
+          <p className="mb-4 font-semibold">
+            What should contractors do if a customer complains about damage?
+          </p>
+
+          <div className="space-y-2">
+            <label className="block">
+              <input type="radio" name="q6" onChange={() => handleAnswer("q6", "ignore")} /> Ignore the complaint
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q6" onChange={() => handleAnswer("q6", "argue")} /> Argue with the customer
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q6" onChange={() => handleAnswer("q6", "report")} /> Professionally document and report the concern
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q6" onChange={() => handleAnswer("q6", "pay")} /> Offer to personally pay immediately
+            </label>
+          </div>
+        </div>
+
+        {/* Submit */}
         <div className="bg-white rounded-2xl shadow-md p-6">
           <button
             onClick={gradeQuiz}
@@ -153,7 +248,7 @@ export default function QuizPage() {
               </h2>
 
               <p>
-                Score: {result.score} out of 3
+                Score: {result.score} out of 6
               </p>
 
               <p>
@@ -161,11 +256,11 @@ export default function QuizPage() {
               </p>
 
               {result.passed ? (
-                <p className="font-bold mt-3">
+                <p className="font-bold mt-3 text-green-700">
                   PASSED — Contractor may continue approval process.
                 </p>
               ) : (
-                <p className="font-bold mt-3">
+                <p className="font-bold mt-3 text-red-700">
                   FAILED — Contractor must review training and retake quiz.
                 </p>
               )}
