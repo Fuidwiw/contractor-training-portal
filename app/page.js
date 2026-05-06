@@ -49,10 +49,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-            <div className="bg-gray-200 rounded-xl p-4">
-              <h3 className="text-xl font-bold">Lockout Training</h3>
-              <p>Proper lockout procedures and damage prevention.</p>
-            </div>
+			<a href="/lockout" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
+				<h3 className="text-xl font-bold">Lockout Training</h3>
+				<p>Proper lockout procedures and damage prevention.</p>
+			</a>
 
             <div className="bg-gray-200 rounded-xl p-4">
               <h3 className="text-xl font-bold">Tire Change Training</h3>
