@@ -73,6 +73,11 @@ export default function Home() {
 				<h3 className="text-xl font-bold">Claims Prevention Training</h3>
 				<p>Required documentation, evidence collection, and claim protection procedures.</p>
 			</a>
+			
+			<a href="/quiz" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
+				<h3 className="text-xl font-bold">Contractor Training Quiz</h3>
+				<p>Final quiz required before contractor approval.</p>
+			</a>
 
           </div>
         </div>
