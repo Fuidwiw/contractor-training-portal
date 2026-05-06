@@ -1,88 +1,217 @@
-export default function Home() {
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const modules = [
+  {
+    id: "lockout",
+    title: "Lockout Training",
+    description:
+      "Learn safe vehicle entry procedures, proper tool use, documentation, EV considerations, and claims-prevention practices.",
+    href: "/lockout",
+  },
+  {
+    id: "tire-change",
+    title: "Tire Change Training",
+    description:
+      "Review scene safety, jack point selection, spare installation, lug damage documentation, and customer communication.",
+    href: "/tire-change",
+  },
+  {
+    id: "fuel-delivery",
+    title: "Fuel Delivery Training",
+    description:
+      "Learn fuel type verification, spill prevention, capless fuel systems, hybrid considerations, and service documentation.",
+    href: "/fuel-delivery",
+  },
+  {
+    id: "jump-start",
+    title: "Jump Start Training",
+    description:
+      "Review battery inspection, polarity verification, safe connection order, EV/hybrid jump points, and electrical claim prevention.",
+    href: "/jump-start",
+  },
+  {
+    id: "claims-prevention",
+    title: "Claims Prevention",
+    description:
+      "Understand how to document vehicle condition, communicate professionally, prevent claims, and respond to customer concerns.",
+    href: "/claims-prevention",
+  },
+];
+
+export default function HomePage() {
+  const [completedModules, setCompletedModules] = useState([]);
+
+  useEffect(() => {
+    const completed = modules
+      .filter((module) => {
+        return sessionStorage.getItem(`training_${module.id}_complete`) === "true";
+      })
+      .map((module) => module.id);
+
+    setCompletedModules(completed);
+  }, []);
+
+  const allTrainingComplete = modules.every((module) =>
+    completedModules.includes(module.id)
+  );
+
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
-      
-      {/* Header */}
-      <div className="bg-black text-white p-6 shadow-lg">
-        <h1 className="text-4xl font-bold">
-          Ozark Roadside Contractor Training
-        </h1>
-
-        <p className="mt-2 text-gray-300">
-          Contractor onboarding, safety procedures, and claims prevention training.
-        </p>
-      </div>
-
-      {/* Main Content */}
-      <div className="p-8">
-
-        {/* Welcome Box */}
-        <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Welcome Contractors
-          </h2>
-
-          <p className="mb-4">
-            All contractors are required to complete training before accepting jobs.
+      <section className="bg-gray-900 text-white">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-300">
+            Ozark Roadside Contractor Training Portal
           </p>
 
-          <p className="mb-4">
-            This training portal includes:
+          <h1 className="max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">
+            Professional roadside training built for safety, service quality,
+            and claims prevention.
+          </h1>
+
+          <p className="mt-5 max-w-3xl text-lg text-gray-200">
+            Complete each training module, review the claims-prevention
+            standards, pass the contractor quiz, and generate your completion
+            certificate.
           </p>
 
-          <ul className="list-disc ml-6 space-y-2">
-            <li>Lockout Procedures</li>
-            <li>Tire Change Procedures</li>
-            <li>Fuel Delivery Procedures</li>
-            <li>Jump Start Procedures</li>
-            <li>Claims Prevention Training</li>
-            <li>Customer Communication Standards</li>
-            <li>Photo & Video Documentation Requirements</li>
-          </ul>
-        </div>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/lockout"
+              className="rounded-xl bg-white px-5 py-3 font-semibold text-gray-900 shadow-sm hover:bg-gray-200"
+            >
+              Start Training
+            </Link>
 
-        {/* Training Modules */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Training Modules
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-			<a href="/lockout" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
-				<h3 className="text-xl font-bold">Lockout Training</h3>
-				<p>Proper lockout procedures and damage prevention.</p>
-			</a>
-
-			<a href="/tire-change" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
-				<h3 className="text-xl font-bold">Tire Change Training</h3>
-				<p>Safe lifting points, wheel protection, and torque procedures.</p>
-			</a>
-
-			<a href="/fuel-delivery" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
-				<h3 className="text-xl font-bold">Fuel Delivery Training</h3>
-				<p>Fuel verification and contamination prevention.</p>
-			</a>
-
-			<a href="/jump-start" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
-				<h3 className="text-xl font-bold">Jump Start Training</h3>
-				<p>Battery safety and modern vehicle procedures.</p>
-			</a>
-
-			<a href="/claims-prevention" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
-				<h3 className="text-xl font-bold">Claims Prevention Training</h3>
-				<p>Required documentation, evidence collection, and claim protection procedures.</p>
-			</a>
-			
-			<a href="/quiz" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
-				<h3 className="text-xl font-bold">Contractor Training Quiz</h3>
-				<p>Final quiz required before contractor approval.</p>
-			</a>
-
+            <Link
+              href="/quiz"
+              className={
+                allTrainingComplete
+                  ? "rounded-xl border border-white px-5 py-3 font-semibold text-white hover:bg-white hover:text-gray-900"
+                  : "rounded-xl border border-gray-500 px-5 py-3 font-semibold text-gray-400"
+              }
+            >
+              {allTrainingComplete ? "Take Quiz" : "Quiz Locked"}
+            </Link>
           </div>
         </div>
+      </section>
 
-      </div>
+      <section className="mx-auto max-w-6xl px-6 py-10">
+        <div className="rounded-2xl border-l-4 border-yellow-500 bg-yellow-50 p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-yellow-900">
+            Training Requirement
+          </h2>
+          <p className="mt-3 text-yellow-950">
+            Contractors should review all required modules before taking the
+            quiz. The certificate page remains locked until the quiz is passed
+            with a score of 80% or higher.
+          </p>
+        </div>
+
+        <section className="mt-8">
+          <div className="mb-6">
+            <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+              Training Modules
+            </p>
+            <h2 className="mt-2 text-3xl font-bold">
+              Complete each required section
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {modules.map((module) => {
+              const completed = completedModules.includes(module.id);
+
+              return (
+                <Link
+                  key={module.href}
+                  href={module.href}
+                  className={
+                    completed
+                      ? "group rounded-2xl bg-green-50 p-6 shadow-sm ring-2 ring-green-300 transition hover:-translate-y-1 hover:shadow-md"
+                      : "group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 transition hover:-translate-y-1 hover:shadow-md"
+                  }
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-2xl font-bold group-hover:text-gray-700">
+                      {module.title}
+                    </h3>
+
+                    {completed && (
+                      <span className="rounded-full bg-green-700 px-3 py-1 text-sm font-bold text-white">
+                        ✓ Complete
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="mt-3 text-gray-700">{module.description}</p>
+
+                  <p className="mt-5 font-semibold text-gray-900">
+                    {completed ? "Review module →" : "Open module →"}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
+          <h2 className="text-2xl font-bold">Completion Process</h2>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-4">
+            <div className="rounded-xl bg-gray-50 p-4 ring-1 ring-gray-200">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+                Step 1
+              </p>
+              <p className="mt-2 font-bold">Review Training</p>
+            </div>
+
+            <div className="rounded-xl bg-gray-50 p-4 ring-1 ring-gray-200">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+                Step 2
+              </p>
+              <p className="mt-2 font-bold">Take Quiz</p>
+            </div>
+
+            <div className="rounded-xl bg-gray-50 p-4 ring-1 ring-gray-200">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+                Step 3
+              </p>
+              <p className="mt-2 font-bold">Pass With 80%</p>
+            </div>
+
+            <div className="rounded-xl bg-gray-50 p-4 ring-1 ring-gray-200">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
+                Step 4
+              </p>
+              <p className="mt-2 font-bold">Generate Certificate</p>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Link
+              href="/quiz"
+              className={
+                allTrainingComplete
+                  ? "rounded-xl bg-gray-900 px-5 py-3 font-semibold text-white hover:bg-gray-700"
+                  : "rounded-xl bg-gray-400 px-5 py-3 font-semibold text-white"
+              }
+            >
+              {allTrainingComplete ? "Go to Quiz" : "Complete Training First"}
+            </Link>
+
+            <Link
+              href="/certificate"
+              className="rounded-xl border border-gray-300 px-5 py-3 font-semibold text-gray-900 hover:bg-gray-100"
+            >
+              Certificate Page
+            </Link>
+          </div>
+        </section>
+      </section>
     </main>
   );
 }
