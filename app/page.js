@@ -54,10 +54,10 @@ export default function Home() {
 				<p>Proper lockout procedures and damage prevention.</p>
 			</a>
 
-            <div className="bg-gray-200 rounded-xl p-4">
-              <h3 className="text-xl font-bold">Tire Change Training</h3>
-              <p>Safe lifting points, wheel protection, and torque procedures.</p>
-            </div>
+			<a href="/tire-change" className="bg-gray-200 rounded-xl p-4 block hover:bg-gray-300">
+				<h3 className="text-xl font-bold">Tire Change Training</h3>
+				<p>Safe lifting points, wheel protection, and torque procedures.</p>
+			</a>
 
             <div className="bg-gray-200 rounded-xl p-4">
               <h3 className="text-xl font-bold">Fuel Delivery Training</h3>
