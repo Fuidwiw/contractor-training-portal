@@ -1,4 +1,40 @@
+"use client";
+
+import { useState } from "react";
+
 export default function QuizPage() {
+  const [answers, setAnswers] = useState({});
+  const [result, setResult] = useState(null);
+
+  const correctAnswers = {
+    q1: "photos",
+    q2: "dispatch",
+    q3: "jackpoint",
+  };
+
+  function handleAnswer(question, value) {
+    setAnswers({
+      ...answers,
+      [question]: value,
+    });
+  }
+
+  function gradeQuiz() {
+    let score = 0;
+
+    if (answers.q1 === correctAnswers.q1) score++;
+    if (answers.q2 === correctAnswers.q2) score++;
+    if (answers.q3 === correctAnswers.q3) score++;
+
+    const percentage = Math.round((score / 3) * 100);
+
+    setResult({
+      score,
+      percentage,
+      passed: percentage === 100,
+    });
+  }
+
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
 
@@ -20,77 +56,121 @@ export default function QuizPage() {
           </h2>
 
           <p className="mb-4">
-            This quiz is designed to confirm that contractors understand Ozark Roadside documentation, service procedures, and claims prevention requirements.
-          </p>
-
-          <p>
-            Later, this page will automatically grade answers and save completion records.
+            Select the best answer for each question. A score of 100% is required to pass.
           </p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Question 1
-          </h2>
+          <h2 className="text-2xl font-semibold mb-4">Question 1</h2>
 
           <p className="mb-4 font-semibold">
             What should a contractor do before touching the customer vehicle?
           </p>
 
-          <ul className="space-y-2">
-            <li><input type="radio" name="q1" /> Start service immediately</li>
-            <li><input type="radio" name="q1" /> Take before-service photos and video</li>
-            <li><input type="radio" name="q1" /> Ask the customer to file a claim</li>
-            <li><input type="radio" name="q1" /> Leave if damage already exists</li>
-          </ul>
+          <div className="space-y-2">
+            <label className="block">
+              <input type="radio" name="q1" onChange={() => handleAnswer("q1", "start")} /> Start service immediately
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q1" onChange={() => handleAnswer("q1", "photos")} /> Take before-service photos and video
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q1" onChange={() => handleAnswer("q1", "claim")} /> Ask the customer to file a claim
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q1" onChange={() => handleAnswer("q1", "leave")} /> Leave if damage already exists
+            </label>
+          </div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Question 2
-          </h2>
+          <h2 className="text-2xl font-semibold mb-4">Question 2</h2>
 
           <p className="mb-4 font-semibold">
             What should a contractor say if a customer reports possible damage?
           </p>
 
-          <ul className="space-y-2">
-            <li><input type="radio" name="q2" /> “I probably did that.”</li>
-            <li><input type="radio" name="q2" /> “My boss will pay for it.”</li>
-            <li><input type="radio" name="q2" /> “I documented the vehicle and will report this to dispatch.”</li>
-            <li><input type="radio" name="q2" /> “That was already there, not my problem.”</li>
-          </ul>
+          <div className="space-y-2">
+            <label className="block">
+              <input type="radio" name="q2" onChange={() => handleAnswer("q2", "admit")} /> “I probably did that.”
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q2" onChange={() => handleAnswer("q2", "pay")} /> “My boss will pay for it.”
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q2" onChange={() => handleAnswer("q2", "dispatch")} /> “I documented the vehicle and will report this to dispatch.”
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q2" onChange={() => handleAnswer("q2", "notmyproblem")} /> “That was already there, not my problem.”
+            </label>
+          </div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-md p-6 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Question 3
-          </h2>
+          <h2 className="text-2xl font-semibold mb-4">Question 3</h2>
 
           <p className="mb-4 font-semibold">
             During a tire change, where should the jack be placed?
           </p>
 
-          <ul className="space-y-2">
-            <li><input type="radio" name="q3" /> Under plastic trim</li>
-            <li><input type="radio" name="q3" /> Under the floor pan</li>
-            <li><input type="radio" name="q3" /> On the correct approved jack point</li>
-            <li><input type="radio" name="q3" /> Anywhere that feels stable</li>
-          </ul>
+          <div className="space-y-2">
+            <label className="block">
+              <input type="radio" name="q3" onChange={() => handleAnswer("q3", "trim")} /> Under plastic trim
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q3" onChange={() => handleAnswer("q3", "floor")} /> Under the floor pan
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q3" onChange={() => handleAnswer("q3", "jackpoint")} /> On the correct approved jack point
+            </label>
+
+            <label className="block">
+              <input type="radio" name="q3" onChange={() => handleAnswer("q3", "anywhere")} /> Anywhere that feels stable
+            </label>
+          </div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-md p-6">
-          <h2 className="text-2xl font-semibold mb-4">
-            Submit Quiz
-          </h2>
-
-          <p className="mb-4">
-            This button is temporary. Later it will grade the quiz and save the contractor result.
-          </p>
-
-          <button className="bg-black text-white px-6 py-3 rounded-xl font-semibold">
+          <button
+            onClick={gradeQuiz}
+            className="bg-black text-white px-6 py-3 rounded-xl font-semibold"
+          >
             Submit Quiz
           </button>
+
+          {result && (
+            <div className="mt-6 bg-gray-200 rounded-xl p-4">
+              <h2 className="text-2xl font-bold mb-2">
+                Quiz Result
+              </h2>
+
+              <p>
+                Score: {result.score} out of 3
+              </p>
+
+              <p>
+                Percentage: {result.percentage}%
+              </p>
+
+              {result.passed ? (
+                <p className="font-bold mt-3">
+                  PASSED — Contractor may continue approval process.
+                </p>
+              ) : (
+                <p className="font-bold mt-3">
+                  FAILED — Contractor must review training and retake quiz.
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
       </div>
