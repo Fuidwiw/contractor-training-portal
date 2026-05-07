@@ -64,6 +64,7 @@ export default function CertificatePage() {
           email,
           signature,
           completedDate: today,
+		  quizReview: JSON.parse(sessionStorage.getItem("quizReview") || "null"),
         }),
       });
 

@@ -11,6 +11,34 @@ function sanitizeFileName(value) {
     .trim();
 }
 
+function buildMissedQuestionsText(quizReview) {
+  if (!quizReview || !Array.isArray(quizReview.missedQuestions)) {
+    return "Quiz review was not provided.";
+  }
+
+  if (quizReview.missedQuestions.length === 0) {
+    return "No missed questions. Contractor answered every question correctly.";
+  }
+
+  return quizReview.missedQuestions
+    .map((item) => {
+      return `
+Question ${item.questionNumber}
+Module: ${item.module}
+
+Question:
+${item.question}
+
+Contractor Answer:
+${item.selectedAnswer}
+
+Correct Answer:
+${item.correctAnswer}
+`.trim();
+    })
+    .join("\n\n----------------------------------------\n\n");
+}
+
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -19,6 +47,7 @@ export async function POST(request) {
     const email = body.email?.trim();
     const signature = body.signature?.trim();
     const completedDate = body.completedDate?.trim();
+    const quizReview = body.quizReview;
 
     if (!name || !email || !signature || !completedDate) {
       return NextResponse.json(
@@ -37,6 +66,8 @@ export async function POST(request) {
 
     const fileName = `${safeName} - ${safeDate}.txt`;
     const filePath = path.join(certificateDirectory, fileName);
+
+    const missedQuestionsText = buildMissedQuestionsText(quizReview);
 
     const certificateText = `
 Ozark Roadside Contractor Training Certificate
@@ -63,6 +94,15 @@ Included Training:
 - Jump start procedures
 - Customer communication standards
 - Claims prevention training
+
+Quiz Result:
+Score: ${quizReview?.score ?? "Not provided"} out of ${quizReview?.totalQuestions ?? "Not provided"}
+Percentage: ${quizReview?.percentage ?? "Not provided"}%
+Passed: ${quizReview?.passed ? "Yes" : "No"}
+Quiz Completed At: ${quizReview?.completedAt ?? "Not provided"}
+
+Missed Questions:
+${missedQuestionsText}
 
 Certification Statement:
 By typing their name as a digital signature, the contractor certifies that they personally completed this training, understand Ozark Roadside procedures, and agree to follow all documentation and claims prevention requirements.

@@ -61,8 +61,7 @@ const questions = [
   {
     id: "q2",
     module: "Lockout",
-    question:
-      "During a lockout, what is the safest way to use an air wedge?",
+    question: "During a lockout, what is the safest way to use an air wedge?",
     options: [
       {
         value: "overinflate",
@@ -75,7 +74,8 @@ const questions = [
       },
       {
         value: "skip-protection",
-        label: "Use it without protection because the rubber wedge cannot damage anything.",
+        label:
+          "Use it without protection because the rubber wedge cannot damage anything.",
       },
       {
         value: "force-trim",
@@ -113,8 +113,7 @@ const questions = [
   {
     id: "q4",
     module: "Tire Change",
-    question:
-      "Before lifting a vehicle for a tire change, what must be verified?",
+    question: "Before lifting a vehicle for a tire change, what must be verified?",
     options: [
       {
         value: "anywhere-stable",
@@ -157,7 +156,8 @@ const questions = [
       },
       {
         value: "after-only",
-        label: "It is better to document those items only after the spare is installed.",
+        label:
+          "It is better to document those items only after the spare is installed.",
       },
     ],
     correctAnswer: "claims-defense",
@@ -217,8 +217,7 @@ const questions = [
   {
     id: "q8",
     module: "Fuel Delivery",
-    question:
-      "What should be done if a vehicle has a capless fuel system?",
+    question: "What should be done if a vehicle has a capless fuel system?",
     options: [
       {
         value: "force-spout",
@@ -243,8 +242,7 @@ const questions = [
   {
     id: "q9",
     module: "Jump Start",
-    question:
-      "What must be confirmed before connecting jump start equipment?",
+    question: "What must be confirmed before connecting jump start equipment?",
     options: [
       {
         value: "polarity",
@@ -257,7 +255,8 @@ const questions = [
       },
       {
         value: "red-black-only",
-        label: "Only that the red cable is positive and black cable is negative.",
+        label:
+          "Only that the red cable is positive and black cable is negative.",
       },
       {
         value: "engine-size",
@@ -334,7 +333,8 @@ const questions = [
       },
       {
         value: "argue",
-        label: "Argue if the contractor believes the damage was already there.",
+        label:
+          "Argue if the contractor believes the damage was already there.",
       },
       {
         value: "document-report",
@@ -347,8 +347,7 @@ const questions = [
   {
     id: "q13",
     module: "Claims Prevention",
-    question:
-      "Which photo documentation practice is best for claims defense?",
+    question: "Which photo documentation practice is best for claims defense?",
     options: [
       {
         value: "after-only",
@@ -361,7 +360,8 @@ const questions = [
       },
       {
         value: "far-away",
-        label: "Take one far-away photo of the vehicle from across the parking lot.",
+        label:
+          "Take one far-away photo of the vehicle from across the parking lot.",
       },
       {
         value: "none",
@@ -378,7 +378,8 @@ const questions = [
     options: [
       {
         value: "continue",
-        label: "Continue because roadside jobs must be completed no matter what.",
+        label:
+          "Continue because roadside jobs must be completed no matter what.",
       },
       {
         value: "customer-choice",
@@ -386,8 +387,7 @@ const questions = [
       },
       {
         value: "stop-contact",
-        label:
-          "Stop and contact dispatch or management before continuing.",
+        label: "Stop and contact dispatch or management before continuing.",
       },
       {
         value: "guess",
@@ -448,15 +448,49 @@ export default function QuizPage() {
 
   function gradeQuiz() {
     let score = 0;
+    const missedQuestions = [];
 
-    questions.forEach((question) => {
-      if (answers[question.id] === question.correctAnswer) {
+    questions.forEach((question, index) => {
+      const selectedAnswer = answers[question.id];
+
+      if (selectedAnswer === question.correctAnswer) {
         score++;
+      } else {
+        const selectedOption = question.options.find(
+          (option) => option.value === selectedAnswer
+        );
+
+        const correctOption = question.options.find(
+          (option) => option.value === question.correctAnswer
+        );
+
+        missedQuestions.push({
+          questionNumber: index + 1,
+          module: question.module,
+          question: question.question,
+          selectedAnswer: selectedOption
+            ? selectedOption.label
+            : "No answer selected",
+          correctAnswer: correctOption
+            ? correctOption.label
+            : "Correct answer missing",
+        });
       }
     });
 
     const percentage = Math.round((score / questions.length) * 100);
     const passed = percentage >= 80;
+
+    const quizReview = {
+      score,
+      totalQuestions: questions.length,
+      percentage,
+      passed,
+      missedQuestions,
+      completedAt: new Date().toLocaleString(),
+    };
+
+    sessionStorage.setItem("quizReview", JSON.stringify(quizReview));
 
     if (passed) {
       sessionStorage.setItem("trainingPassed", "true");
@@ -468,6 +502,7 @@ export default function QuizPage() {
       score,
       percentage,
       passed,
+      missedQuestions,
     });
   }
 
@@ -502,9 +537,9 @@ export default function QuizPage() {
 
           <p className="mt-4 text-gray-700">
             This quiz is locked until all required training sections are marked
-            complete in this same browser session. If the browser is closed,
-            the session is reset, or the contractor returns later, they must
-            complete the training modules again.
+            complete in this same browser session. If the browser is closed, the
+            session is reset, or the contractor returns later, they must complete
+            the training modules again.
           </p>
 
           <div className="mt-6 space-y-3">
@@ -578,9 +613,7 @@ export default function QuizPage() {
           </p>
 
           <div className="mt-4 rounded-xl bg-yellow-50 p-4 text-yellow-950 ring-1 ring-yellow-200">
-            <p className="font-semibold">
-              Passing score: 80% or higher
-            </p>
+            <p className="font-semibold">Passing score: 80% or higher</p>
             <p className="mt-1">
               This quiz has {questions.length} questions. Contractors must answer
               at least 12 correctly to pass.
@@ -595,9 +628,7 @@ export default function QuizPage() {
               className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200"
             >
               <div className="mb-4 flex flex-wrap items-center gap-3">
-                <h2 className="text-2xl font-bold">
-                  Question {index + 1}
-                </h2>
+                <h2 className="text-2xl font-bold">Question {index + 1}</h2>
 
                 <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-semibold text-gray-700 ring-1 ring-gray-200">
                   {question.module}
@@ -674,7 +705,8 @@ export default function QuizPage() {
               ) : (
                 <div className="mt-4 rounded-xl bg-red-50 p-4 ring-1 ring-red-200">
                   <p className="font-bold text-red-800">
-                    FAILED — Contractor must review the training and retake the quiz.
+                    FAILED — Contractor must review the training and retake the
+                    quiz.
                   </p>
                 </div>
               )}
