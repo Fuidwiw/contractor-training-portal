@@ -39,6 +39,13 @@ const modules = [
       "Understand how to document vehicle condition, communicate professionally, prevent claims, and respond to customer concerns.",
     href: "/claims-prevention",
   },
+  {
+  id: "damage-waiver",
+  title: "Damage Waiver Tutorial",
+  description:
+    "Learn how to log in, generate job info, complete the waiver, collect initials/signatures, upload the form, and avoid closing the browser too early.",
+  href: "/damage-waiver",
+},
 ];
 
 export default function HomePage() {

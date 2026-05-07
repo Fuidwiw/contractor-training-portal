@@ -29,6 +29,11 @@ const requiredModules = [
     name: "Claims Prevention Training",
     href: "/claims-prevention",
   },
+  {
+  id: "damage-waiver",
+  name: "Damage Waiver Tutorial",
+  href: "/damage-waiver",
+},
 ];
 
 const questions = [
