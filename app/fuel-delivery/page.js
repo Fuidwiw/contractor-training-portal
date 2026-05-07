@@ -50,47 +50,7 @@ export default function FuelDeliveryTrainingPage() {
             </p>
           </div>
         </div>
-
-        <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
-          <div className="mb-5">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gray-500">
-              Training Video
-            </p>
-
-            <h2 className="mt-2 text-2xl font-bold">
-              Proper Fuel Delivery Procedure
-            </h2>
-
-            <p className="mt-3 max-w-3xl text-gray-700">
-              A training video can be added here later to demonstrate fuel type
-              verification, safe fuel handling, spill prevention, capless fuel
-              system procedures, and customer communication.
-            </p>
-          </div>
-
-          <div className="overflow-hidden rounded-xl border border-gray-300 bg-gray-200">
-            <div className="aspect-video">
-              <iframe
-                className="h-full w-full"
-                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                title="Fuel Delivery Training Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-
-          <div className="mt-4 rounded-xl bg-gray-50 p-4 text-sm text-gray-700 ring-1 ring-gray-200">
-            <p className="font-semibold text-gray-900">Video Note:</p>
-            <p className="mt-1">
-              Replace <span className="font-mono">VIDEO_ID_HERE</span> with the
-              YouTube video ID for the fuel delivery training video you want to
-              use.
-            </p>
-          </div>
-        </section>
-
-        <div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
+<div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Safety Warning
           </h2>
