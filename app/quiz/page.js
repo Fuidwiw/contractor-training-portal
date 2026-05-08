@@ -157,7 +157,7 @@ const questions = [
     id: "q5",
     module: "Tire Change",
     question:
-      "A lug nut is swollen and the socket does not fit properly. What is the correct procedure?",
+      "A lug nut is swollen and the socket does not fit properly. The customer tells you to do what ever needs to be done to change the tire. What is the correct procedure?",
     options: [
       {
         value: "hammer-socket",
@@ -215,7 +215,7 @@ const questions = [
     id: "q7",
     module: "Tire Change",
     question:
-      "A lug nut starts to thread crooked while installing the spare. What should you do?",
+      "A lug nut starts to thread crooked while installing the spare tire. What should you do?",
     options: [
       {
         value: "impact-force",
@@ -244,7 +244,7 @@ const questions = [
     id: "q8",
     module: "Fuel Delivery",
     question:
-      "The customer says they are not sure whether the vehicle takes gasoline or diesel. What should you do?",
+      "The customer says they are not sure whether the vehicle takes gasoline or diesel and tells you to just put a little in it. What should you do?",
     options: [
       {
         value: "guess",
@@ -273,7 +273,7 @@ const questions = [
     id: "q9",
     module: "Fuel Delivery",
     question:
-      "Fuel splashes near the filler area while you are pouring. What is the best response?",
+      "While pouring fuel in the vehicle, fuel splashes near the filler area and onto the painted surface of the vehicle. What is the best response?",
     options: [
       {
         value: "ignore-drip",
@@ -302,7 +302,7 @@ const questions = [
     id: "q10",
     module: "Fuel Delivery",
     question:
-      "A vehicle has a capless fuel system. What is the correct action?",
+      "A vehicle has a capless fuel system and the customer states another technician previously damaged the filler neck by trying to force a fuel nozzle in it. What is the correct action?",
     options: [
       {
         value: "force-spout",
@@ -331,7 +331,7 @@ const questions = [
     id: "q11",
     module: "Jump Start",
     question:
-      "Before connecting jump equipment, which statement is most correct?",
+      "You arrive for a jump-start call in a crowded parking garage. The customer says they are in a hurry and want you to be quick about it. Before connecting any jump equipment, what should the technician do?",
     options: [
       {
         value: "color-only",
@@ -360,7 +360,7 @@ const questions = [
     id: "q12",
     module: "Jump Start",
     question:
-      "Which condition means the contractor should not attempt a jump start?",
+      "Which battery condition means the contractor should not attempt a jump start?",
     options: [
       {
         value: "dust",
@@ -418,7 +418,7 @@ const questions = [
     id: "q14",
     module: "EV / Hybrid",
     question:
-      "When jump starting or servicing an EV/hybrid, what must never be used as a connection point?",
+      "When jump starting or servicing an EV/hybrid, what must NEVER be used as a connection point?",
     options: [
       {
         value: "12v-points",
@@ -447,7 +447,7 @@ const questions = [
     id: "q15",
     module: "Claims Prevention",
     question:
-      "A customer claims damage occurred during service, but you believe it was already there. What is the correct response?",
+      "A customer claims damage occurred during service pointing at a spot on their vehicle, but you believe it was already there and properly documented it. What is the correct response?",
     options: [
       {
         value: "argue",
@@ -476,7 +476,7 @@ const questions = [
     id: "q16",
     module: "Claims Prevention",
     question:
-      "Which documentation practice provides the strongest claims defense?",
+      "Which documentation practice provides the strongest claims defense when a customer files a damage claim against you?",
     options: [
       {
         value: "after-only",
