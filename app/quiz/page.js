@@ -30,10 +30,10 @@ const requiredModules = [
     href: "/claims-prevention",
   },
   {
-  id: "damage-waiver",
-  name: "Damage Waiver Tutorial",
-  href: "/damage-waiver",
-},
+    id: "damage-waiver",
+    name: "Damage Waiver Tutorial",
+    href: "/damage-waiver",
+  },
 ];
 
 const questions = [
@@ -41,244 +41,331 @@ const questions = [
     id: "q1",
     module: "Lockout",
     question:
-      "Before performing a vehicle lockout, what should the contractor do first?",
+      "You arrive for a lockout and notice scratches already on the driver door near the window trim. What should you do before inserting any tool?",
     options: [
       {
-        value: "force-door",
-        label: "Create a large door gap quickly so the job can be completed faster.",
-      },
-      {
-        value: "inspect-document",
+        value: "ignore-existing",
         label:
-          "Inspect the vehicle, look for existing damage, and take pre-service photos.",
+          "Ignore the scratches because the customer probably already knows they are there.",
       },
       {
-        value: "unlock-first",
-        label: "Unlock the vehicle first, then inspect for damage afterward.",
+        value: "document-notify",
+        label:
+          "Photograph the scratches, document them, and notify the customer before starting service.",
       },
       {
-        value: "customer-only",
-        label: "Only ask the customer if the vehicle has damage.",
+        value: "unlock-fast",
+        label:
+          "Unlock the vehicle first so the customer is not delayed, then take photos afterward.",
+      },
+      {
+        value: "refuse-all",
+        label:
+          "Automatically refuse the service any time existing damage is visible.",
       },
     ],
-    correctAnswer: "inspect-document",
+    correctAnswer: "document-notify",
   },
   {
     id: "q2",
     module: "Lockout",
-    question: "During a lockout, what is the safest way to use an air wedge?",
+    question:
+      "During a lockout, the air wedge is creating resistance and the top of the door is beginning to flex. What is the correct response?",
     options: [
       {
-        value: "overinflate",
-        label: "Inflate it as much as possible to create a large opening.",
-      },
-      {
-        value: "minimum-pressure",
+        value: "inflate-more",
         label:
-          "Use only enough pressure to create working space and avoid bending the door frame.",
+          "Inflate the wedge more because more space makes the job easier.",
       },
       {
-        value: "skip-protection",
+        value: "stop-reassess",
         label:
-          "Use it without protection because the rubber wedge cannot damage anything.",
+          "Stop, reduce pressure, reassess the entry point, and avoid bending the door frame.",
       },
       {
-        value: "force-trim",
-        label: "Place it against loose trim to make the tool easier to insert.",
+        value: "force-tool",
+        label:
+          "Force the long-reach tool through quickly before the door flexes more.",
+      },
+      {
+        value: "ask-customer-hold",
+        label:
+          "Ask the customer to pull on the door while you work the tool inside.",
       },
     ],
-    correctAnswer: "minimum-pressure",
+    correctAnswer: "stop-reassess",
   },
   {
     id: "q3",
     module: "Lockout",
     question:
-      "If a vehicle has frameless windows, fragile trim, or existing door damage, what should the contractor do?",
+      "A vehicle has frameless windows and fragile-looking weather stripping. What is the best claims-conscious approach?",
     options: [
       {
-        value: "continue-fast",
-        label: "Continue quickly before the customer becomes impatient.",
-      },
-      {
-        value: "ignore",
-        label: "Ignore it unless the customer says something.",
-      },
-      {
-        value: "warn-document",
+        value: "use-extra-pressure",
         label:
-          "Document the condition, notify the customer, and proceed only if it can be done safely.",
+          "Use extra wedge pressure because frameless windows need a larger opening.",
       },
       {
-        value: "force-entry",
-        label: "Use more wedge pressure so the long-reach tool fits better.",
+        value: "safe-entry-or-stop",
+        label:
+          "Document the condition, use the safest possible entry point, and stop/contact dispatch if safe entry is uncertain.",
+      },
+      {
+        value: "skip-photos",
+        label:
+          "Skip photos so the customer does not think you are expecting damage.",
+      },
+      {
+        value: "metal-wedge",
+        label:
+          "Use a metal wedge because it is thinner and easier to insert.",
       },
     ],
-    correctAnswer: "warn-document",
+    correctAnswer: "safe-entry-or-stop",
   },
   {
     id: "q4",
     module: "Tire Change",
-    question: "Before lifting a vehicle for a tire change, what must be verified?",
+    question:
+      "Before lifting a vehicle, you see the ground is soft gravel and the vehicle is slightly on a slope. What should you do?",
     options: [
       {
-        value: "anywhere-stable",
-        label: "That the jack fits somewhere under the vehicle.",
-      },
-      {
-        value: "correct-jack-point",
+        value: "lift-anyway",
         label:
-          "The correct manufacturer-approved lift point and stable ground conditions.",
+          "Lift the vehicle carefully because the job must be completed on scene.",
       },
       {
-        value: "customer-says-ok",
-        label: "That the customer says the vehicle has been lifted before.",
+        value: "unsafe-location",
+        label:
+          "Do not lift until the vehicle can be positioned safely or another safe solution is arranged.",
       },
       {
-        value: "plastic-panel",
-        label: "That the jack is touching a large plastic underbody panel.",
+        value: "use-plastic",
+        label:
+          "Place the jack on a plastic trim panel to spread the load.",
+      },
+      {
+        value: "customer-watch",
+        label:
+          "Have the customer watch the jack while you remove the tire.",
       },
     ],
-    correctAnswer: "correct-jack-point",
+    correctAnswer: "unsafe-location",
   },
   {
     id: "q5",
     module: "Tire Change",
     question:
-      "Why should lug nuts, lug studs, wheel locks, and the wheel area be documented before removal?",
+      "A lug nut is swollen and the socket does not fit properly. What is the correct procedure?",
     options: [
       {
-        value: "speed",
-        label: "It makes the tire change faster.",
-      },
-      {
-        value: "claims-defense",
+        value: "hammer-socket",
         label:
-          "It helps show whether damage, missing lugs, swollen lugs, stripped studs, rust, or wheel issues existed before service.",
+          "Hammer the socket on and remove it as fast as possible.",
       },
       {
-        value: "not-needed",
-        label: "It is only needed if the customer complains first.",
-      },
-      {
-        value: "after-only",
+        value: "document-notify-lug",
         label:
-          "It is better to document those items only after the spare is installed.",
+          "Document the condition, notify the customer, and avoid forcing the lug nut if damage is likely.",
+      },
+      {
+        value: "skip-lug",
+        label:
+          "Skip that lug nut and remove the others first.",
+      },
+      {
+        value: "round-it-off",
+        label:
+          "Use an impact until the lug nut rounds off, then report that it was stuck.",
       },
     ],
-    correctAnswer: "claims-defense",
+    correctAnswer: "document-notify-lug",
   },
   {
     id: "q6",
     module: "Tire Change",
     question:
-      "What should a contractor do if a lug nut will not thread smoothly by hand?",
+      "Why should lug nuts, studs, wheel locks, and the wheel area be photographed before removal?",
     options: [
       {
-        value: "impact-force",
-        label: "Use an impact wrench to force it on.",
-      },
-      {
-        value: "stop-inspect",
+        value: "customer-proof",
         label:
-          "Stop, inspect for cross-threading or stud damage, document the issue, and notify the customer.",
+          "To prove the customer was present at the scene.",
       },
       {
-        value: "skip-lug",
-        label: "Leave that lug nut off and continue.",
+        value: "claims-defense",
+        label:
+          "To document prior damage, missing lugs, rust, swollen lug nuts, stripped studs, or wheel issues before service.",
       },
       {
-        value: "tighten-hard",
-        label: "Tighten it harder until it seats.",
+        value: "social-media",
+        label:
+          "To have examples for future training or social media.",
+      },
+      {
+        value: "after-only",
+        label:
+          "They should only be photographed after the spare is installed.",
       },
     ],
-    correctAnswer: "stop-inspect",
+    correctAnswer: "claims-defense",
   },
   {
     id: "q7",
-    module: "Fuel Delivery",
+    module: "Tire Change",
     question:
-      "What is the most important step before dispensing fuel into a customer vehicle?",
+      "A lug nut starts to thread crooked while installing the spare. What should you do?",
     options: [
       {
-        value: "guess",
-        label: "Guess the fuel type based on the vehicle size.",
-      },
-      {
-        value: "verify-fuel",
+        value: "impact-force",
         label:
-          "Verify the correct fuel type using the customer, fuel door, fuel cap, label, or reliable vehicle information.",
+          "Use the impact wrench to seat it fully.",
       },
       {
-        value: "use-regular",
-        label: "Use regular gasoline because most vehicles take it.",
+        value: "stop-cross-thread",
+        label:
+          "Stop immediately, inspect for cross-threading or stud damage, document the issue, and notify the customer.",
       },
       {
-        value: "ask-after",
-        label: "Ask the customer after the fuel has already been added.",
+        value: "leave-loose",
+        label:
+          "Leave it loose and tell the customer to drive slowly.",
+      },
+      {
+        value: "tighten-last",
+        label:
+          "Tighten the other lug nuts first, then force the crooked one last.",
       },
     ],
-    correctAnswer: "verify-fuel",
+    correctAnswer: "stop-cross-thread",
   },
   {
     id: "q8",
     module: "Fuel Delivery",
-    question: "What should be done if a vehicle has a capless fuel system?",
+    question:
+      "The customer says they are not sure whether the vehicle takes gasoline or diesel. What should you do?",
     options: [
       {
-        value: "force-spout",
-        label: "Force the fuel spout into the opening.",
-      },
-      {
-        value: "adapter",
+        value: "guess",
         label:
-          "Use the correct capless fuel adapter or funnel and avoid forcing the system.",
+          "Guess based on the size of the vehicle.",
       },
       {
-        value: "pour-outside",
-        label: "Pour slowly near the opening and let fuel drain in.",
+        value: "verify-before-fuel",
+        label:
+          "Do not dispense fuel until the correct fuel type is verified from reliable information.",
       },
       {
-        value: "skip-document",
-        label: "Skip documenting it because capless systems are common.",
+        value: "regular-gas",
+        label:
+          "Use regular gasoline because it is the most common fuel type.",
+      },
+      {
+        value: "small-amount",
+        label:
+          "Add only a small amount of fuel to see if the vehicle starts.",
       },
     ],
-    correctAnswer: "adapter",
+    correctAnswer: "verify-before-fuel",
   },
   {
     id: "q9",
-    module: "Jump Start",
-    question: "What must be confirmed before connecting jump start equipment?",
+    module: "Fuel Delivery",
+    question:
+      "Fuel splashes near the filler area while you are pouring. What is the best response?",
     options: [
       {
-        value: "polarity",
+        value: "ignore-drip",
         label:
-          "Positive and negative connection points, battery condition, and safe jump locations.",
+          "Ignore it if the amount is small.",
       },
       {
-        value: "customer-ready",
-        label: "Only that the customer is ready to start the vehicle.",
-      },
-      {
-        value: "red-black-only",
+        value: "wipe-document",
         label:
-          "Only that the red cable is positive and black cable is negative.",
+          "Stop or slow down, clean minor drips appropriately, avoid smearing fuel across paint, and document the issue if needed.",
       },
       {
-        value: "engine-size",
-        label: "Only the engine size of the vehicle.",
+        value: "pour-faster",
+        label:
+          "Pour faster so the container is empty sooner.",
+      },
+      {
+        value: "customer-clean",
+        label:
+          "Ask the customer to clean it after you leave.",
       },
     ],
-    correctAnswer: "polarity",
+    correctAnswer: "wipe-document",
   },
   {
     id: "q10",
-    module: "Jump Start",
+    module: "Fuel Delivery",
     question:
-      "Which battery condition means the contractor should NOT perform a jump start?",
+      "A vehicle has a capless fuel system. What is the correct action?",
     options: [
       {
-        value: "dirty",
-        label: "The battery case is dusty.",
+        value: "force-spout",
+        label:
+          "Force the fuel spout in until it opens.",
+      },
+      {
+        value: "use-adapter",
+        label:
+          "Use the correct capless fuel adapter or funnel and do not force the fuel system.",
+      },
+      {
+        value: "pour-outside",
+        label:
+          "Pour fuel near the opening and let it run inside slowly.",
+      },
+      {
+        value: "skip-verify",
+        label:
+          "Skip fuel type verification because capless systems prevent wrong fuel.",
+      },
+    ],
+    correctAnswer: "use-adapter",
+  },
+  {
+    id: "q11",
+    module: "Jump Start",
+    question:
+      "Before connecting jump equipment, which statement is most correct?",
+    options: [
+      {
+        value: "color-only",
+        label:
+          "Cable color is enough to determine polarity.",
+      },
+      {
+        value: "verify-everything",
+        label:
+          "Verify positive/negative connection points, battery condition, terminal condition, and safe jump locations before connecting.",
+      },
+      {
+        value: "connect-first",
+        label:
+          "Connect first, then check for corrosion or damage.",
+      },
+      {
+        value: "customer-start",
+        label:
+          "Have the customer start cranking while you attach the clamps.",
+      },
+    ],
+    correctAnswer: "verify-everything",
+  },
+  {
+    id: "q12",
+    module: "Jump Start",
+    question:
+      "Which condition means the contractor should not attempt a jump start?",
+    options: [
+      {
+        value: "dust",
+        label:
+          "The battery has dust on top of it.",
       },
       {
         value: "unsafe-battery",
@@ -286,146 +373,249 @@ const questions = [
           "The battery is frozen, cracked, leaking, swollen, smoking, or visibly damaged.",
       },
       {
-        value: "old-car",
-        label: "The vehicle is older than 10 years.",
+        value: "older-car",
+        label:
+          "The vehicle is more than ten years old.",
       },
       {
-        value: "small-battery",
-        label: "The battery is smaller than expected.",
+        value: "dead-battery",
+        label:
+          "The battery is dead.",
       },
     ],
     correctAnswer: "unsafe-battery",
   },
   {
-    id: "q11",
+    id: "q13",
+    module: "Jump Start",
+    question:
+      "After connecting a jump pack, you notice heat, smoke, sparks, or unusual electrical behavior. What should you do?",
+    options: [
+      {
+        value: "continue",
+        label:
+          "Continue the jump attempt because some sparks are normal.",
+      },
+      {
+        value: "stop-disconnect",
+        label:
+          "Stop immediately, turn off/disconnect equipment safely, document the issue, and do not continue until the situation is safe.",
+      },
+      {
+        value: "start-fast",
+        label:
+          "Tell the customer to crank quickly before the battery gets worse.",
+      },
+      {
+        value: "move-clamps-live",
+        label:
+          "Move the clamps while the jump pack is still powered on.",
+      },
+    ],
+    correctAnswer: "stop-disconnect",
+  },
+  {
+    id: "q14",
     module: "EV / Hybrid",
     question:
-      "When servicing an EV or hybrid during a jump start, what should the contractor avoid?",
+      "When jump starting or servicing an EV/hybrid, what must never be used as a connection point?",
     options: [
+      {
+        value: "12v-points",
+        label:
+          "Manufacturer-designated 12-volt jump points.",
+      },
       {
         value: "high-voltage",
         label:
-          "Orange high-voltage cables, battery packs, inverters, charging components, and unknown electrical parts.",
+          "Orange high-voltage cables, battery packs, inverters, charging components, or unknown electrical parts.",
       },
       {
-        value: "12v-only",
-        label: "Manufacturer-designated 12-volt jump points.",
+        value: "owner-manual",
+        label:
+          "A manufacturer-provided jump point listed in the owner information.",
       },
       {
-        value: "photos",
-        label: "Taking photos before service.",
-      },
-      {
-        value: "dispatch",
-        label: "Calling dispatch if the correct jump point is unclear.",
+        value: "dispatch-guidance",
+        label:
+          "A jump location confirmed by dispatch or management.",
       },
     ],
     correctAnswer: "high-voltage",
   },
   {
-    id: "q12",
+    id: "q15",
     module: "Claims Prevention",
     question:
-      "What is the correct response if a customer reports possible damage at the scene?",
+      "A customer claims damage occurred during service, but you believe it was already there. What is the correct response?",
     options: [
-      {
-        value: "admit",
-        label: "Admit fault immediately so the customer calms down.",
-      },
-      {
-        value: "promise-pay",
-        label: "Promise that the company will pay for repairs.",
-      },
       {
         value: "argue",
         label:
-          "Argue if the contractor believes the damage was already there.",
+          "Argue with the customer and tell them it was already there.",
+      },
+      {
+        value: "admit",
+        label:
+          "Admit fault so the customer does not get upset.",
       },
       {
         value: "document-report",
         label:
-          "Stay professional, document the concern, take photos, and report it to management or dispatch.",
+          "Stay professional, take photos, document what the customer reported, and notify management or dispatch.",
+      },
+      {
+        value: "promise-pay",
+        label:
+          "Promise the company will pay for the repair.",
       },
     ],
     correctAnswer: "document-report",
   },
   {
-    id: "q13",
+    id: "q16",
     module: "Claims Prevention",
-    question: "Which photo documentation practice is best for claims defense?",
+    question:
+      "Which documentation practice provides the strongest claims defense?",
     options: [
       {
         value: "after-only",
-        label: "Take photos only after the job is complete.",
-      },
-      {
-        value: "before-after",
         label:
-          "Take clear pre-service and post-service photos of the exact work area and any existing damage.",
+          "Only take photos after the job is complete.",
       },
       {
-        value: "far-away",
+        value: "before-after-specific",
         label:
-          "Take one far-away photo of the vehicle from across the parking lot.",
+          "Take clear before-and-after photos of the exact work area, including existing damage and tool contact areas.",
       },
       {
-        value: "none",
-        label: "Only take photos if the customer seems difficult.",
+        value: "far-photo",
+        label:
+          "Take one photo of the whole vehicle from far away.",
+      },
+      {
+        value: "customer-verbal",
+        label:
+          "Rely on the customer verbally saying the vehicle looks fine.",
       },
     ],
-    correctAnswer: "before-after",
+    correctAnswer: "before-after-specific",
   },
   {
-    id: "q14",
+    id: "q17",
     module: "Claims Prevention",
     question:
-      "If the correct procedure is unclear or the service may damage the vehicle, what should the contractor do?",
+      "If the correct procedure is unclear or continuing may damage the vehicle, what should the contractor do?",
     options: [
       {
-        value: "continue",
+        value: "continue-anyway",
         label:
-          "Continue because roadside jobs must be completed no matter what.",
+          "Continue because the job has already been started.",
       },
       {
-        value: "customer-choice",
-        label: "Let the customer choose where to place tools or equipment.",
+        value: "customer-decides",
+        label:
+          "Let the customer decide how the contractor should proceed.",
       },
       {
         value: "stop-contact",
-        label: "Stop and contact dispatch or management before continuing.",
+        label:
+          "Stop and contact dispatch or management before continuing.",
       },
       {
-        value: "guess",
-        label: "Make the best guess and document only if something breaks.",
+        value: "guess-document",
+        label:
+          "Guess the best method and only document it if something goes wrong.",
       },
     ],
     correctAnswer: "stop-contact",
   },
   {
-    id: "q15",
+    id: "q18",
     module: "Overall Procedure",
     question:
-      "What does a successful roadside service require besides completing the requested task?",
+      "Which statement best describes a successful roadside service?",
     options: [
       {
-        value: "speed-only",
-        label: "Completing the job as fast as possible.",
+        value: "speed",
+        label:
+          "The job was completed as fast as possible.",
       },
       {
         value: "safe-documented",
         label:
-          "Safe work, professional communication, correct procedure, and documentation that can defend against a claim.",
+          "The job was completed safely, professionally, using correct procedure, with documentation strong enough to defend against a claim.",
       },
       {
-        value: "no-photos",
-        label: "Avoiding photos so the customer does not feel uncomfortable.",
+        value: "customer-happy",
+        label:
+          "The customer seemed happy, so documentation is not important.",
       },
       {
-        value: "customer-approval-only",
-        label: "Only getting the customer to say everything looks okay.",
+        value: "no-management",
+        label:
+          "The contractor avoided contacting dispatch or management no matter what.",
       },
     ],
     correctAnswer: "safe-documented",
+  },
+  {
+    id: "q19",
+    module: "Damage Waiver",
+    question:
+      "During the damage waiver process, what must happen after entering the job number?",
+    options: [
+      {
+        value: "skip-generate",
+        label:
+          "Skip the generated information and complete everything manually.",
+      },
+      {
+        value: "generate-job-info",
+        label:
+          "Click Generate Job Info so the waiver can pull the correct information from Towbook.",
+      },
+      {
+        value: "close-browser",
+        label:
+          "Close the browser and reopen it after the job is finished.",
+      },
+      {
+        value: "customer-sign-first",
+        label:
+          "Have the customer sign the final signature area before the service is completed.",
+      },
+    ],
+    correctAnswer: "generate-job-info",
+  },
+  {
+    id: "q20",
+    module: "Damage Waiver",
+    question:
+      "After the customer reads and initials the waiver, what is the correct process?",
+    options: [
+      {
+        value: "close-browser",
+        label:
+          "Close the browser and reopen the waiver after the job is complete.",
+      },
+      {
+        value: "keep-open-upload-confirm",
+        label:
+          "Keep the browser open, complete the job, get the final signature if no damage occurred, click Upload Form, and wait for upload confirmation.",
+      },
+      {
+        value: "upload-before-job",
+        label:
+          "Upload the form before completing the job so it is already in Towbook.",
+      },
+      {
+        value: "skip-final-signature",
+        label:
+          "Skip the final signature as long as the customer already initialed the release.",
+      },
+    ],
+    correctAnswer: "keep-open-upload-confirm",
   },
 ];
 
@@ -537,14 +727,14 @@ export default function QuizPage() {
           </p>
 
           <h1 className="text-3xl font-bold">
-            Complete all training modules before taking the quiz.
+            Complete all training sections before taking the quiz.
           </h1>
 
           <p className="mt-4 text-gray-700">
             This quiz is locked until all required training sections are marked
             complete in this same browser session. If the browser is closed, the
             session is reset, or the contractor returns later, they must complete
-            the training modules again.
+            the training sections again.
           </p>
 
           <div className="mt-6 space-y-3">
@@ -599,7 +789,7 @@ export default function QuizPage() {
           </h1>
 
           <p className="mt-4 max-w-3xl text-lg text-gray-200">
-            Contractors must complete all required training modules in this same
+            Contractors must complete all required training sections in this same
             browser session before taking the quiz. A score of 80% or higher is
             required to generate a completion certificate.
           </p>
@@ -613,15 +803,15 @@ export default function QuizPage() {
           <p className="mt-3 text-gray-700">
             Select the best answer for each question. These questions are based
             on the training modules for lockouts, tire changes, fuel delivery,
-            jump starts, EV/hybrid considerations, documentation, and claims
-            prevention.
+            jump starts, EV/hybrid considerations, documentation, claims
+            prevention, and damage waiver procedure.
           </p>
 
           <div className="mt-4 rounded-xl bg-yellow-50 p-4 text-yellow-950 ring-1 ring-yellow-200">
             <p className="font-semibold">Passing score: 80% or higher</p>
             <p className="mt-1">
               This quiz has {questions.length} questions. Contractors must answer
-              at least 12 correctly to pass.
+              at least 16 correctly to pass.
             </p>
           </div>
         </div>
