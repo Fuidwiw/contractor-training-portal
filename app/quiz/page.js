@@ -885,19 +885,41 @@ export default function QuizPage() {
               </p>
 
               {result.passed ? (
-                <div className="mt-4 rounded-xl bg-green-50 p-4 ring-1 ring-green-200">
-                  <p className="font-bold text-green-800">
-                    PASSED — Contractor may generate a completion certificate.
-                  </p>
+				  <div className="mt-4 rounded-xl bg-green-50 p-4 ring-1 ring-green-200">
+					<p className="font-bold text-green-800">
+					  PASSED — You must generate your completion certificate.
+					</p>
 
-                  <Link
-                    href="/certificate"
-                    className="mt-4 inline-block rounded-xl bg-gray-900 px-6 py-3 font-semibold text-white hover:bg-gray-700"
-                  >
-                    Generate Completion Certificate
-                  </Link>
-                </div>
-              ) : (
+					<div className="mt-4 rounded-xl border-l-4 border-red-600 bg-red-50 p-4 text-red-900">
+					  <p className="text-lg font-bold">
+						IMPORTANT: You are not finished yet.
+					  </p>
+
+					  <p className="mt-2">
+						Your training is not considered complete until you click the button
+						below and generate your completion certificate.
+					  </p>
+
+					  <p className="mt-2 font-semibold">
+						If you close this browser before generating the certificate, Ozark
+						Roadside may not receive your completion record and you may be required
+						to retake the course.
+					  </p>
+					</div>
+
+					<Link
+					  href="/certificate"
+					  onClick={() => {
+						alert(
+						  "IMPORTANT: You are not finished yet. You must complete the certificate page so Ozark Roadside receives your completion record."
+						);
+					  }}
+					  className="mt-5 inline-block rounded-xl bg-red-700 px-6 py-3 text-lg font-bold text-white hover:bg-red-800"
+					>
+					  Generate Completion Certificate — Required
+					</Link>
+				  </div>
+				) : (
                 <div className="mt-4 rounded-xl bg-red-50 p-4 ring-1 ring-red-200">
                   <p className="font-bold text-red-800">
                     FAILED — Contractor must review the training and retake the
