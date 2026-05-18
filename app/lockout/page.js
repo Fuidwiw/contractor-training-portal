@@ -1,4 +1,5 @@
 import TrainingCompleteButton from "../components/TrainingCompleteButton";
+import SectionAcknowledgment from "../components/SectionAcknowledgment";
 export default function LockoutTrainingPage() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
@@ -49,6 +50,13 @@ export default function LockoutTrainingPage() {
             </p>
           </div>
         </div>
+		
+		<SectionAcknowledgment
+			moduleId="lockout"
+			ackId="overview"
+			label="I reviewed the Lockout Training overview and understand the purpose of this module."
+		/>				  
+
 <div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Safety Warning
@@ -60,6 +68,12 @@ export default function LockoutTrainingPage() {
             danger, contact emergency services immediately.
           </p>
         </div>
+
+		<SectionAcknowledgment
+		  moduleId="lockout"
+		  ackId="safety"
+		  label="I reviewed the Lockout safety warnings and understand that I must stop if safe entry is uncertain."
+		/>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
@@ -174,6 +188,12 @@ export default function LockoutTrainingPage() {
           </div>
         </section>
 
+		<SectionAcknowledgment
+		  moduleId="lockout"
+		  ackId="procedure"
+		  label="I reviewed the step-by-step Lockout procedure and understand that tools must be used carefully to avoid vehicle damage."
+		/>
+
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
             <h2 className="text-2xl font-bold">Customer Communication</h2>
@@ -215,6 +235,12 @@ export default function LockoutTrainingPage() {
           </section>
         </div>
 
+		<SectionAcknowledgment
+		  moduleId="lockout"
+		  ackId="documentation"
+		  label="I reviewed the Lockout documentation checklist and understand that pre-service and post-service photos are required for claims defense."
+		/>
+
         <section className="mt-8 rounded-2xl bg-yellow-50 p-6 shadow-sm ring-1 ring-yellow-200">
           <h2 className="text-2xl font-bold text-yellow-900">
             Claims-Prevention Examples
@@ -249,6 +275,12 @@ export default function LockoutTrainingPage() {
             </div>
           </div>
         </section>
+
+		<SectionAcknowledgment
+		  moduleId="lockout"
+		  ackId="claims"
+		  label="I reviewed the Lockout claims-prevention examples and understand how lockout damage claims can happen."
+		/>
 
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">EV and Newer Vehicle Considerations</h2>
@@ -300,7 +332,24 @@ export default function LockoutTrainingPage() {
             professionally, damage was avoided, and the job was documented well
             enough to defend against a false or mistaken claim.
           </p>
-		  	<TrainingCompleteButton moduleId="lockout" moduleName="Lockout Training" />
+		  
+		 <SectionAcknowledgment
+			 moduleId="lockout"
+			 ackId="completion"
+			 label="I reviewed the Lockout completion standard and understand what is required before marking this section complete."
+		/>
+			<TrainingCompleteButton
+			  moduleId="lockout"
+			  moduleName="Lockout Training"
+			  requiredAckIds={[
+				"overview",
+				"safety",
+				"procedure",
+				"documentation",
+				"claims",
+				"completion",
+			  ]}
+			/>
         </section>
       </section>
     </main>

@@ -1,4 +1,6 @@
 import TrainingCompleteButton from "../components/TrainingCompleteButton";
+import SectionAcknowledgment from "../components/SectionAcknowledgment";
+
 export default function JumpStartTrainingPage() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
@@ -54,7 +56,14 @@ export default function JumpStartTrainingPage() {
             </p>
           </div>
         </div>
-<div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
+
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="overview"
+          label="I reviewed the Jump Start Training overview and understand the purpose of this module."
+        />
+
+        <div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Safety Warning
           </h2>
@@ -65,6 +74,12 @@ export default function JumpStartTrainingPage() {
             if polarity is unclear.
           </p>
         </div>
+
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="safety"
+          label="I reviewed the Jump Start safety warning and understand that unsafe batteries or unclear polarity mean I must not continue."
+        />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
@@ -98,8 +113,16 @@ export default function JumpStartTrainingPage() {
           </section>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="equipment"
+          label="I reviewed the required equipment and pre-service inspection steps, including battery condition, cables, terminals, and correct jump points."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
-          <h2 className="text-2xl font-bold">Step-by-Step Jump Start Procedure</h2>
+          <h2 className="text-2xl font-bold">
+            Step-by-Step Jump Start Procedure
+          </h2>
 
           <div className="mt-6 space-y-6">
             <div>
@@ -186,6 +209,12 @@ export default function JumpStartTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="procedure"
+          label="I reviewed the step-by-step Jump Start procedure and understand correct polarity, connection order, start attempt limits, and disconnection order."
+        />
+
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
             <h2 className="text-2xl font-bold">Customer Communication</h2>
@@ -227,6 +256,12 @@ export default function JumpStartTrainingPage() {
           </section>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="documentation"
+          label="I reviewed the Jump Start customer communication and documentation checklist and understand that battery condition, connection points, and final results must be documented."
+        />
+
         <section className="mt-8 rounded-2xl bg-yellow-50 p-6 shadow-sm ring-1 ring-yellow-200">
           <h2 className="text-2xl font-bold text-yellow-900">
             Claims-Prevention Examples
@@ -263,6 +298,12 @@ export default function JumpStartTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="claims"
+          label="I reviewed the Jump Start claims-prevention examples and understand how electrical, battery terminal, and no-start claims can happen."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">EV and Hybrid Considerations</h2>
 
@@ -288,6 +329,12 @@ export default function JumpStartTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="ev"
+          label="I reviewed the EV and hybrid jump start considerations and understand that high-voltage components must never be used as jump points."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Common Mistakes to Avoid</h2>
 
@@ -304,6 +351,12 @@ export default function JumpStartTrainingPage() {
           </ul>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="mistakes"
+          label="I reviewed the common Jump Start mistakes and understand the actions that can cause safety issues, electrical claims, or equipment damage."
+        />
+
         <section className="mt-8 rounded-2xl bg-gray-900 p-6 text-white shadow-sm">
           <h2 className="text-2xl font-bold">Completion Standard</h2>
 
@@ -313,8 +366,29 @@ export default function JumpStartTrainingPage() {
             was documented, and the customer was informed whether the vehicle
             may still need battery, charging system, or mechanical diagnosis.
           </p>
-		  	<TrainingCompleteButton moduleId="jump-start" moduleName="Jump Start Training" />
         </section>
+
+        <SectionAcknowledgment
+          moduleId="jump-start"
+          ackId="completion"
+          label="I reviewed the Jump Start completion standard and understand what is required before marking this section complete."
+        />
+
+        <TrainingCompleteButton
+          moduleId="jump-start"
+          moduleName="Jump Start Training"
+          requiredAckIds={[
+            "overview",
+            "safety",
+            "equipment",
+            "procedure",
+            "documentation",
+            "claims",
+            "ev",
+            "mistakes",
+            "completion",
+          ]}
+        />
       </section>
     </main>
   );

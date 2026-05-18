@@ -1,5 +1,6 @@
 import Image from "next/image";
 import TrainingCompleteButton from "../components/TrainingCompleteButton";
+import SectionAcknowledgment from "../components/SectionAcknowledgment";
 
 export default function DamageWaiverPage() {
   return (
@@ -36,6 +37,12 @@ export default function DamageWaiverPage() {
           </p>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="required"
+          label="I understand that the Damage Waiver Tutorial is required before I can access the quiz."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Why the Damage Waiver Matters</h2>
 
@@ -61,6 +68,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="why-it-matters"
+          label="I reviewed why the damage waiver matters and understand that it supports documentation and claims defense, but does not replace careful work."
+        />
+
         <section className="mt-8 rounded-2xl bg-blue-50 p-6 shadow-sm ring-1 ring-blue-200">
           <h2 className="text-2xl font-bold text-blue-900">
             Full Process Overview
@@ -85,6 +98,12 @@ export default function DamageWaiverPage() {
             </li>
           </ol>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="process-overview"
+          label="I reviewed the full damage waiver process overview from login through final upload confirmation."
+        />
 
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -128,6 +147,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="login"
+          label="I understand that I must log in using my correct Towbook username."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div className="overflow-hidden rounded-2xl bg-gray-50 shadow-sm ring-1 ring-gray-200 lg:order-2">
@@ -170,6 +195,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="job-number"
+          label="I understand that I must enter the correct job number before generating job information."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div>
@@ -210,6 +241,12 @@ export default function DamageWaiverPage() {
             </div>
           </div>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="generate-job-info"
+          label="I understand that I must click Generate Job Info so the waiver pulls the correct job information from Towbook."
+        />
 
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -259,6 +296,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="mileage-job-type"
+          label="I understand that I must manually enter the vehicle mileage and select the proper job type for the service being performed."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div>
@@ -306,6 +349,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="customer-initials"
+          label="I understand that the customer must read the release and initial it before the job continues."
+        />
+
         <section className="mt-8 rounded-2xl border-l-4 border-red-500 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Warning — Do Not Close the Browser
@@ -327,6 +376,12 @@ export default function DamageWaiverPage() {
             </p>
           </div>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="do-not-close"
+          label="I understand that I must not close the browser after the customer initials the waiver and before the upload is complete."
+        />
 
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -376,6 +431,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="final-signature"
+          label="I understand that after completing the job, if no damage occurred, I must have the customer complete the final signature section."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div>
@@ -421,6 +482,12 @@ export default function DamageWaiverPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="upload-confirmation"
+          label="I understand that I must click Upload Form and wait for the system to confirm the upload is complete before closing the browser."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Common Mistakes to Avoid</h2>
 
@@ -437,6 +504,12 @@ export default function DamageWaiverPage() {
             <li>• Clicking Upload Form and leaving before the upload finishes.</li>
           </ul>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="mistakes"
+          label="I reviewed the common damage waiver mistakes and understand what errors can cause documentation problems."
+        />
 
         <section className="mt-8 rounded-2xl bg-green-50 p-6 shadow-sm ring-1 ring-green-200">
           <h2 className="text-2xl font-bold text-green-900">
@@ -463,9 +536,30 @@ export default function DamageWaiverPage() {
           </ul>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="damage-waiver"
+          ackId="completion"
+          label="I reviewed the Damage Waiver completion standard and understand what is required before marking this section complete."
+        />
+
         <TrainingCompleteButton
           moduleId="damage-waiver"
           moduleName="Damage Waiver Tutorial"
+          requiredAckIds={[
+            "required",
+            "why-it-matters",
+            "process-overview",
+            "login",
+            "job-number",
+            "generate-job-info",
+            "mileage-job-type",
+            "customer-initials",
+            "do-not-close",
+            "final-signature",
+            "upload-confirmation",
+            "mistakes",
+            "completion",
+          ]}
         />
       </section>
     </main>

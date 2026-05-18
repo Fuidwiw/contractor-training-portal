@@ -1,4 +1,6 @@
 import TrainingCompleteButton from "../components/TrainingCompleteButton";
+import SectionAcknowledgment from "../components/SectionAcknowledgment";
+
 export default function FuelDeliveryTrainingPage() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
@@ -50,7 +52,14 @@ export default function FuelDeliveryTrainingPage() {
             </p>
           </div>
         </div>
-<div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
+
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="overview"
+          label="I reviewed the Fuel Delivery Training overview and understand the purpose of this module."
+        />
+
+        <div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Safety Warning
           </h2>
@@ -61,6 +70,12 @@ export default function FuelDeliveryTrainingPage() {
             occurs, stop service immediately and address the hazard.
           </p>
         </div>
+
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="safety"
+          label="I reviewed the Fuel Delivery safety warning and understand that fuel is flammable and ignition sources must be avoided."
+        />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
@@ -95,8 +110,16 @@ export default function FuelDeliveryTrainingPage() {
           </section>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="equipment"
+          label="I reviewed the required equipment and pre-service checks, including fuel type verification, capless fuel systems, and fuel door documentation."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
-          <h2 className="text-2xl font-bold">Step-by-Step Fuel Delivery Procedure</h2>
+          <h2 className="text-2xl font-bold">
+            Step-by-Step Fuel Delivery Procedure
+          </h2>
 
           <div className="mt-6 space-y-6">
             <div>
@@ -109,7 +132,9 @@ export default function FuelDeliveryTrainingPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold">2. Inspect and Photograph the Fuel Area</h3>
+              <h3 className="text-lg font-semibold">
+                2. Inspect and Photograph the Fuel Area
+              </h3>
               <p className="mt-2 text-gray-700">
                 Photograph the fuel door, fuel cap, surrounding paint, quarter
                 panel, and any existing scratches, dents, broken hinges, missing
@@ -181,6 +206,12 @@ export default function FuelDeliveryTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="procedure"
+          label="I reviewed the step-by-step Fuel Delivery procedure and understand that fuel type must be verified before dispensing."
+        />
+
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
             <h2 className="text-2xl font-bold">Customer Communication</h2>
@@ -223,6 +254,12 @@ export default function FuelDeliveryTrainingPage() {
           </section>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="documentation"
+          label="I reviewed the Fuel Delivery communication and documentation checklist and understand that fuel type, fuel area condition, spills, and start attempt results must be documented."
+        />
+
         <section className="mt-8 rounded-2xl bg-yellow-50 p-6 shadow-sm ring-1 ring-yellow-200">
           <h2 className="text-2xl font-bold text-yellow-900">
             Claims-Prevention Examples
@@ -258,6 +295,12 @@ export default function FuelDeliveryTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="claims"
+          label="I reviewed the Fuel Delivery claims-prevention examples and understand how wrong fuel, spill, paint, and fuel door claims can happen."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">EV and Hybrid Considerations</h2>
 
@@ -282,6 +325,12 @@ export default function FuelDeliveryTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="ev"
+          label="I reviewed the EV and hybrid fuel delivery considerations and understand that charging ports must never be confused with fuel fillers."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Common Mistakes to Avoid</h2>
 
@@ -298,6 +347,12 @@ export default function FuelDeliveryTrainingPage() {
           </ul>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="mistakes"
+          label="I reviewed the common Fuel Delivery mistakes and understand the actions that commonly lead to damage claims or safety issues."
+        />
+
         <section className="mt-8 rounded-2xl bg-gray-900 p-6 text-white shadow-sm">
           <h2 className="text-2xl font-bold">Completion Standard</h2>
 
@@ -306,9 +361,30 @@ export default function FuelDeliveryTrainingPage() {
             delivered safely, spills were prevented, the vehicle condition was
             documented, and the customer was informed if the vehicle still did
             not start after receiving fuel.
-			<TrainingCompleteButton moduleId="fuel-delivery" moduleName="Fuel Delivery Training" />
           </p>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="fuel-delivery"
+          ackId="completion"
+          label="I reviewed the Fuel Delivery completion standard and understand what is required before marking this section complete."
+        />
+
+        <TrainingCompleteButton
+          moduleId="fuel-delivery"
+          moduleName="Fuel Delivery Training"
+          requiredAckIds={[
+            "overview",
+            "safety",
+            "equipment",
+            "procedure",
+            "documentation",
+            "claims",
+            "ev",
+            "mistakes",
+            "completion",
+          ]}
+        />
       </section>
     </main>
   );

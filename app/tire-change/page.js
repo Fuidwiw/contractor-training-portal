@@ -1,4 +1,6 @@
 import TrainingCompleteButton from "../components/TrainingCompleteButton";
+import SectionAcknowledgment from "../components/SectionAcknowledgment";
+
 export default function TireChangeTrainingPage() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
@@ -51,7 +53,14 @@ export default function TireChangeTrainingPage() {
             </p>
           </div>
         </div>
-<div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
+
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="overview"
+          label="I reviewed the Tire Change Training overview and understand the purpose of this module."
+        />
+
+        <div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Safety Warning
           </h2>
@@ -63,6 +72,12 @@ export default function TireChangeTrainingPage() {
             or a tow.
           </p>
         </div>
+
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="safety"
+          label="I reviewed the Tire Change safety warning and understand that I must not work in unsafe traffic, ground, or scene conditions."
+        />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
@@ -90,14 +105,20 @@ export default function TireChangeTrainingPage() {
               <li>• Inspect the vehicle for existing damage.</li>
               <li>• Confirm the spare tire, jack tools, and wheel lock key are present.</li>
               <li>• Verify the spare appears usable and inflated.</li>
-			  <li>• Inspect and document prior lug nut, lug stud, wheel, and wheel lock damage.</li>
-			  <li>• Look for swollen lug nuts, missing lug nuts, stripped studs, broken studs, rounded lug nuts, cross-threading, rust, or previous improper installation.</li>
+              <li>• Inspect and document prior lug nut, lug stud, wheel, and wheel lock damage.</li>
+              <li>• Look for swollen lug nuts, missing lug nuts, stripped studs, broken studs, rounded lug nuts, cross-threading, rust, or previous improper installation.</li>
               <li>• Notify the customer before continuing if any lug-related issue is found.</li>
-			  <li>• Identify the correct manufacturer lift point.</li>
+              <li>• Identify the correct manufacturer lift point.</li>
               <li>• Take clear pre-service photos before lifting.</li>
             </ul>
           </section>
         </div>
+
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="equipment"
+          label="I reviewed the required equipment and pre-service inspection steps, including lug nut, lug stud, wheel, spare tire, and jack point checks."
+        />
 
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Step-by-Step Tire Change Procedure</h2>
@@ -198,6 +219,12 @@ export default function TireChangeTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="procedure"
+          label="I reviewed the step-by-step Tire Change procedure and understand proper lifting, lug nut handling, spare installation, and final safety checks."
+        />
+
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
             <h2 className="text-2xl font-bold">Customer Communication</h2>
@@ -234,15 +261,21 @@ export default function TireChangeTrainingPage() {
               <li>• Jack point photographed before lifting</li>
               <li>• Existing damage documented</li>
               <li>• Spare tire condition checked</li>
-			  <li>• Prior lug nut, lug stud, wheel, or wheel lock damage documented</li>
-			  <li>• Missing, swollen, rounded, stripped, broken, rusted, or cross-threaded lug issues photographed</li>
-			  <li>• Customer notified of any lug-related concern before service continued</li>
+              <li>• Prior lug nut, lug stud, wheel, or wheel lock damage documented</li>
+              <li>• Missing, swollen, rounded, stripped, broken, rusted, or cross-threaded lug issues photographed</li>
+              <li>• Customer notified of any lug-related concern before service continued</li>
               <li>• Lug nut or wheel lock issues documented</li>
               <li>• Installed spare photographed</li>
               <li>• Final condition photographed after service</li>
             </ul>
           </section>
         </div>
+
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="documentation"
+          label="I reviewed the Tire Change customer communication and documentation checklist and understand that photos and customer notification are required for claims defense."
+        />
 
         <section className="mt-8 rounded-2xl bg-yellow-50 p-6 shadow-sm ring-1 ring-yellow-200">
           <h2 className="text-2xl font-bold text-yellow-900">
@@ -279,6 +312,12 @@ export default function TireChangeTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="claims"
+          label="I reviewed the Tire Change claims-prevention examples and understand how jack point, lug nut, wheel, and stud damage claims can happen."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">EV and Newer Vehicle Considerations</h2>
 
@@ -305,6 +344,12 @@ export default function TireChangeTrainingPage() {
           </div>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="ev"
+          label="I reviewed the EV and newer vehicle considerations and understand that unknown lift points, battery packs, underbody panels, and high-voltage components require extra caution."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Common Mistakes to Avoid</h2>
 
@@ -321,6 +366,12 @@ export default function TireChangeTrainingPage() {
           </ul>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="mistakes"
+          label="I reviewed the common Tire Change mistakes and understand the actions that commonly lead to safety issues or claims."
+        />
+
         <section className="mt-8 rounded-2xl bg-gray-900 p-6 text-white shadow-sm">
           <h2 className="text-2xl font-bold">Completion Standard</h2>
 
@@ -330,8 +381,29 @@ export default function TireChangeTrainingPage() {
             customer was informed of spare tire limits, and the job was
             documented well enough to defend against a claim.
           </p>
-		  		  	<TrainingCompleteButton moduleId="tire-change" moduleName="Tire Change Training" />
         </section>
+
+        <SectionAcknowledgment
+          moduleId="tire-change"
+          ackId="completion"
+          label="I reviewed the Tire Change completion standard and understand what is required before marking this section complete."
+        />
+
+        <TrainingCompleteButton
+          moduleId="tire-change"
+          moduleName="Tire Change Training"
+          requiredAckIds={[
+            "overview",
+            "safety",
+            "equipment",
+            "procedure",
+            "documentation",
+            "claims",
+            "ev",
+            "mistakes",
+            "completion",
+          ]}
+        />
       </section>
     </main>
   );

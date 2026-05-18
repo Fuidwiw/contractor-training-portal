@@ -1,4 +1,6 @@
 import TrainingCompleteButton from "../components/TrainingCompleteButton";
+import SectionAcknowledgment from "../components/SectionAcknowledgment";
+
 export default function ClaimsPreventionTrainingPage() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
@@ -51,6 +53,12 @@ export default function ClaimsPreventionTrainingPage() {
           </div>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="overview"
+          label="I reviewed the Claims Prevention overview and understand the purpose of this module."
+        />
+
         <div className="mt-8 rounded-2xl border-l-4 border-red-600 bg-red-50 p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-red-800">
             Critical Claims Warning
@@ -62,6 +70,12 @@ export default function ClaimsPreventionTrainingPage() {
             continuing.
           </p>
         </div>
+
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="warning"
+          label="I reviewed the critical claims warning and understand that existing damage, customer concerns, unsafe conditions, and unusual vehicle conditions must never be ignored."
+        />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
@@ -97,12 +111,20 @@ export default function ClaimsPreventionTrainingPage() {
           </section>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="claim-types"
+          label="I reviewed the common claim types and required documentation standards."
+        />
+
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Documentation Procedure</h2>
 
           <div className="mt-6 space-y-6">
             <div>
-              <h3 className="text-lg font-semibold">1. Photograph Before Touching the Vehicle</h3>
+              <h3 className="text-lg font-semibold">
+                1. Photograph Before Touching the Vehicle
+              </h3>
               <p className="mt-2 text-gray-700">
                 Take photos before placing tools, jacks, wedges, fuel containers,
                 jump equipment, or any other equipment on or near the vehicle.
@@ -111,7 +133,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold">2. Document the Exact Work Area</h3>
+              <h3 className="text-lg font-semibold">
+                2. Document the Exact Work Area
+              </h3>
               <p className="mt-2 text-gray-700">
                 For lockouts, photograph the door, window, trim, and weather
                 stripping. For tire changes, photograph the wheel, lug nuts, lug
@@ -123,7 +147,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold">3. Notify the Customer of Existing Damage</h3>
+              <h3 className="text-lg font-semibold">
+                3. Notify the Customer of Existing Damage
+              </h3>
               <p className="mt-2 text-gray-700">
                 If you see existing damage, tell the customer before starting.
                 Keep the explanation simple and professional. Example: “I want
@@ -133,7 +159,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold">4. Stop if the Job Becomes Unsafe or Risky</h3>
+              <h3 className="text-lg font-semibold">
+                4. Stop if the Job Becomes Unsafe or Risky
+              </h3>
               <p className="mt-2 text-gray-700">
                 If the service may damage the vehicle, if the vehicle condition
                 is unsafe, or if the correct procedure is unclear, stop and
@@ -142,7 +170,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold">5. Photograph After Service</h3>
+              <h3 className="text-lg font-semibold">
+                5. Photograph After Service
+              </h3>
               <p className="mt-2 text-gray-700">
                 Take post-service photos from similar angles as the pre-service
                 photos. The goal is to show the condition of the vehicle after
@@ -161,6 +191,12 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
           </div>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="documentation"
+          label="I reviewed the documentation procedure and understand that photos must be taken before service, after service, and of the exact work area."
+        />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
@@ -204,6 +240,12 @@ export default function ClaimsPreventionTrainingPage() {
           </section>
         </div>
 
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="communication"
+          label="I reviewed the customer communication and damage concern checklist and understand that I must not argue, admit fault, or promise repairs/payment."
+        />
+
         <section className="mt-8 rounded-2xl bg-yellow-50 p-6 shadow-sm ring-1 ring-yellow-200">
           <h2 className="text-2xl font-bold text-yellow-900">
             Claims-Prevention Examples
@@ -211,7 +253,9 @@ export default function ClaimsPreventionTrainingPage() {
 
           <div className="mt-5 space-y-5 text-yellow-950">
             <div>
-              <h3 className="font-semibold">Customer Claims Door Was Scratched During Lockout</h3>
+              <h3 className="font-semibold">
+                Customer Claims Door Was Scratched During Lockout
+              </h3>
               <p className="mt-1">
                 Prevention: Photograph the door, window trim, weather stripping,
                 and existing marks before inserting any wedge or tool. Take
@@ -220,7 +264,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Customer Claims Lug Stud Was Broken During Tire Change</h3>
+              <h3 className="font-semibold">
+                Customer Claims Lug Stud Was Broken During Tire Change
+              </h3>
               <p className="mt-1">
                 Prevention: Inspect and photograph lug nuts, lug studs, rust,
                 swollen lug nuts, missing lug nuts, wheel locks, and prior wheel
@@ -229,7 +275,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Customer Claims Fuel Damaged Paint</h3>
+              <h3 className="font-semibold">
+                Customer Claims Fuel Damaged Paint
+              </h3>
               <p className="mt-1">
                 Prevention: Photograph the fuel door and surrounding paint before
                 delivery. Pour slowly, use the correct funnel or adapter, and
@@ -238,7 +286,9 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
 
             <div>
-              <h3 className="font-semibold">Customer Claims Jump Start Caused Electrical Issues</h3>
+              <h3 className="font-semibold">
+                Customer Claims Jump Start Caused Electrical Issues
+              </h3>
               <p className="mt-1">
                 Prevention: Photograph the battery, terminals, cables, corrosion,
                 aftermarket wiring, and jump points before connecting equipment.
@@ -247,6 +297,12 @@ export default function ClaimsPreventionTrainingPage() {
             </div>
           </div>
         </section>
+
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="examples"
+          label="I reviewed the claims-prevention examples and understand how documentation helps defend lockout, tire change, fuel delivery, and jump start claims."
+        />
 
         <section className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
           <h2 className="text-2xl font-bold">Common Mistakes to Avoid</h2>
@@ -264,6 +320,12 @@ export default function ClaimsPreventionTrainingPage() {
           </ul>
         </section>
 
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="mistakes"
+          label="I reviewed the common claims-prevention mistakes and understand what actions create avoidable claim risk."
+        />
+
         <section className="mt-8 rounded-2xl bg-gray-900 p-6 text-white shadow-sm">
           <h2 className="text-2xl font-bold">Completion Standard</h2>
 
@@ -273,8 +335,28 @@ export default function ClaimsPreventionTrainingPage() {
             communicated clearly, worked carefully, photographed the completed
             result, and reported any customer concern immediately.
           </p>
-		  <TrainingCompleteButton moduleId="claims-prevention" moduleName="Claims Prevention Training" />
         </section>
+
+        <SectionAcknowledgment
+          moduleId="claims-prevention"
+          ackId="completion"
+          label="I reviewed the Claims Prevention completion standard and understand what is required before marking this section complete."
+        />
+
+        <TrainingCompleteButton
+          moduleId="claims-prevention"
+          moduleName="Claims Prevention Training"
+          requiredAckIds={[
+            "overview",
+            "warning",
+            "claim-types",
+            "documentation",
+            "communication",
+            "examples",
+            "mistakes",
+            "completion",
+          ]}
+        />
       </section>
     </main>
   );
